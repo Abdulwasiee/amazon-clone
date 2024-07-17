@@ -4,7 +4,9 @@ import { SiPrime } from "react-icons/si";
 import { TiLocationOutline } from "react-icons/ti";
 import { CiSearch } from "react-icons/ci";
 import { PiShoppingCartSimple } from "react-icons/pi";
-import flag from "../../assets/americanFlag.png"
+import flag from "../../assets/americanFlag.png";
+import logo from "../../assets/Amazon_logo.svg";
+import LowerHeader from "./LowerHeader";
 
 function Header() {
   return (
@@ -12,16 +14,19 @@ function Header() {
       <header className={styles.headerContainer}>
         <section className={styles.headerSection1}>
           <div className={styles.primeDay}>
-            <SiPrime />
+            <img className={styles.logo} src={logo} alt="Amazon Logo" />
           </div>
           <div className={styles.deliverTo}>
-            deliver to <TiLocationOutline /> <span>Ethiopia</span>
+            <TiLocationOutline />
+            <div className={styles.deliverToEthio}>
+              deliver to <span className={styles.Ethiopia}>Ethiopia</span>
+            </div>
           </div>
         </section>
         <section className={styles.headerSection2}>
           <div className={styles.select}>
-            <select name="" id="">
-              <option value="">all</option>
+            <select className={styles.all} name="" id="">
+              <option value="">All</option>
             </select>
           </div>
           <div className={styles.searchBox}>
@@ -36,22 +41,32 @@ function Header() {
             <span className={styles.flag}>
               <img src={flag} alt="country flag" />
             </span>
-            <select name="" id="">
-              <option value=""> EN</option>
+            <select className={styles.english} name="" id="">
+              <option value="">EN</option>
             </select>
           </div>
           <div className={styles.signIn}>
-            <select name="" id="">
-              <option value=""> Hello, sgn In Account & Lists</option>
-            </select>
+            <a href="">
+              {" "}
+              Hello, Sign In <br />
+              Account & Lists
+            </a>
           </div>
-          <div className={styles.order}>Returns and Order </div>
+          <div className={styles.order}>
+            <a href="">
+              Returns <br />
+              and Orders
+            </a>
+          </div>
           <div className={styles.cart}>
-            <span className={styles.count}>0</span>
-            <PiShoppingCartSimple />
+            <a href="">
+              <span className={styles.count}>0</span>
+              <PiShoppingCartSimple />
+            </a>
           </div>
         </section>
       </header>
+      <LowerHeader />
     </>
   );
 }
