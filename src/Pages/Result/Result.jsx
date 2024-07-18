@@ -5,6 +5,7 @@ import axios from "axios";
 import '../../components/product/Product'
 import "./Result.css";
 import SingleProduct from "../../components/product/SingleProduct";
+import Loader from "../../components/Loder/Loader";
 
 function Result() {
   const { categoryId } = useParams();
@@ -32,7 +33,7 @@ function Result() {
             <SingleProduct key={singleItem.id} product={singleItem} />
           ))
         ) : (
-          <p>Loading...</p>
+          <Loader/>
         )}
       </div>
     </Layout>

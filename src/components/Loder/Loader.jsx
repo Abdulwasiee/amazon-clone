@@ -1,12 +1,18 @@
 import React from "react";
-import "./Loder.css"; // Corrected CSS file import
-import { PulseLoader } from "react-spinners";
+import "./Loder.css"; 
+import { ScaleLoader } from "react-spinners";
 
 function Loader({ loading }) {
-  // Accept loading as a prop
   return (
     <div className="loading-container">
-      <PulseLoader color={"#123abc"} loading={loading} size={150} />
+      <ScaleLoader
+        color={"#123abc"}
+        loading={loading}
+        height={35}
+        width={4}
+        radius={2}
+        margin={2}
+      />
     </div>
   );
 }
