@@ -1,7 +1,7 @@
 import React from "react";
 import Rating from "@mui/material/Rating";
 import "./Product.css";
-import Currency from "./currencyFormat/Currency";
+import Currency from "./currencyFormat/currency";
 
 function SingleProduct({ product }) {
   return (
@@ -12,8 +12,8 @@ function SingleProduct({ product }) {
         <Rating value={product.rating.rate} readOnly precision={0.1} />
         {` (${product.rating.count})`}
       </small>
-
       <Currency amount={product.price} />
+      <button className="add">Add to Cart</button>
     </div>
   );
 }
