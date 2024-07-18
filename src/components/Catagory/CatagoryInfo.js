@@ -7,19 +7,19 @@ export const catagorydata = [
   },
   {
     title: "Womens's Clothing",
-    name: "womens clothing",
+    name: "women's clothing",
     imgLink:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkkcPI0F3cmdnvfjquompQgcT8UasDXZcNjQ&s",
   },
   {
     title: "Men's Clothing",
-    name: "mens Clothing",
+    name: "men's clothing",
     imgLink:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6UQuQA3rGbMzDgSn2MlFy4-vt7BR6pgWFCQ&s",
   },
   {
-    title: "Jewlery",
-    name: "jewlery",
+    title: "Jewelery",
+    name: "jewelery",
     imgLink:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS8yz_tPjkowzfzlTdIEUKzltcXtnmDsj9EuA&s",
   },

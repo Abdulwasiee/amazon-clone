@@ -7,6 +7,7 @@ import { PiShoppingCartSimple } from "react-icons/pi";
 import flag from "../../assets/americanFlag.png";
 import logo from "../../assets/Amazon_logo.svg";
 import LowerHeader from "./LowerHeader";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
@@ -46,23 +47,23 @@ function Header() {
             </select>
           </div>
           <div className={styles.signIn}>
-            <a href="">
+            <Link to="/signUp">
               {" "}
               Hello, Sign In <br />
               Account & Lists
-            </a>
+            </Link>
           </div>
           <div className={styles.order}>
-            <a href="">
+            <Link to="/order">
               Returns <br />
               and Orders
-            </a>
+            </Link>
           </div>
           <div className={styles.cart}>
-            <a href="">
+            <Link to="/cart">
               <span className={styles.count}>0</span>
               <PiShoppingCartSimple />
-            </a>
+            </Link>
           </div>
         </section>
       </header>

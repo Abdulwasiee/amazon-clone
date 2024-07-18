@@ -1,0 +1,25 @@
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Adjust height as needed */
+}
+
+.react-spinner-loader > div {
+  width: 20px; /* Adjust width of each pulse dot */
+  height: 20px; /* Adjust height of each pulse dot */
+  margin: 3px; /* Adjust margin between pulse dots */
+  border-radius: 50%;
+  display: inline-block;
+  background-color: #123abc; /* Adjust pulse dot color */
+  animation: bounce 1.5s infinite ease-in-out; /* Animation for pulse effect */
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.8);
+  }
+}

@@ -1,10 +1,12 @@
 import React from "react";
 import "./catagory.css";
+import { Link } from "react-router-dom";
+
 function SingleCatagory(props) {
   return (
     <>
       <section className="itemContainer">
-        <a href="">
+        <Link to={`/category/${props.data.name}`}>
           <div className="title">{props.data.title}</div>
           <img
             className="itemImage"
@@ -12,7 +14,7 @@ function SingleCatagory(props) {
             alt={props.data.name}
           />
           <p className="shop">shop now</p>
-        </a>
+        </Link>
       </section>
     </>
   );
