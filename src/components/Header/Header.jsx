@@ -1,6 +1,5 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { SiPrime } from "react-icons/si";
 import { TiLocationOutline } from "react-icons/ti";
 import { CiSearch } from "react-icons/ci";
 import { PiShoppingCartSimple } from "react-icons/pi";

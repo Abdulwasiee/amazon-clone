@@ -22,7 +22,11 @@ function ImageCarousel() {
     >
       {images.map((singleImage, index) => (
         <div key={index}>
-          <img src={singleImage} alt={`Slide ${index + 1}`} />
+          <img
+            src={singleImage}
+            alt={`Slide ${index + 1}`}
+            className="fade-in-bottom"
+          />
         </div>
       ))}
     </Carousel>

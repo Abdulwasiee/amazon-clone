@@ -7,7 +7,7 @@ function Loader({ loading }) {
     <div className="loading-container">
       <ScaleLoader
         color={"#123abc"}
-        loading={loading}
+        // loading={loading}
         height={35}
         width={4}
         radius={2}
