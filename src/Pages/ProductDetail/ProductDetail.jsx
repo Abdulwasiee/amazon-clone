@@ -36,7 +36,7 @@ function ProductDetail() {
   return (
     <>
       <Layout>
-        <SingleProduct product={item} flex={true} descDisplay={true} />
+        <SingleProduct product={item} flex={true} descDisplay={true} buttonDisp={true} />
       </Layout>
     </>
   );

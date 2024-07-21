@@ -30,7 +30,7 @@ function Product() {
   return (
     <div className="productList">
       {products.map((singleProduct, index) => (
-        <SingleProduct key={index} product={singleProduct} />
+        <SingleProduct key={index} product={singleProduct} buttonDisp={true} />
       ))}
     </div>
   );

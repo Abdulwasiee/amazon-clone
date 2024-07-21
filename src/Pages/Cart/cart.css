@@ -1,0 +1,30 @@
+.cartContainer {
+  display: flex;
+  width: 100%;
+}
+.greeting h3,
+.greeting p {
+  padding: 10px;
+}
+.subTotalContainer {
+  background-color: #c0aeae;
+  width: 50%;
+  margin-top: 30px;
+  margin-right: 200px;
+  height: 100px;
+  text-align: center;
+  padding: 10px;
+  margin-left: 50px;
+}
+.subTotal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.checkOut {
+  margin: 10px;
+  background-color: orange;
+  border: none;
+  border-radius: 5px;
+  padding: 0 10px;
+}

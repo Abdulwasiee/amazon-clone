@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import styles from "./Header.module.css";
 import { TiLocationOutline } from "react-icons/ti";
 import { CiSearch } from "react-icons/ci";
@@ -7,10 +7,13 @@ import flag from "../../assets/americanFlag.png";
 import logo from "../../assets/Amazon_logo.svg";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
+import { contextProvider } from "../../Data/DataProvider";
 
 function Header() {
+  const { state, dispatch } = useContext(contextProvider);
+
   return (
-    <>
+    <section className={styles.fixed}>
       <header className={styles.headerContainer}>
         <section className={styles.headerSection1}>
           <div className={styles.primeDay}>
@@ -47,7 +50,6 @@ function Header() {
           </div>
           <div className={styles.signIn}>
             <Link to="/signUp">
-              {" "}
               Hello, Sign In <br />
               Account & Lists
             </Link>
@@ -60,14 +62,14 @@ function Header() {
           </div>
           <div className={styles.cart}>
             <Link to="/cart">
-              <span className={styles.count}>0</span>
+              <span className={styles.count}>{state.basket.length}</span>
               <PiShoppingCartSimple />
             </Link>
           </div>
         </section>
       </header>
       <LowerHeader />
-    </>
+    </section>
   );
 }
 

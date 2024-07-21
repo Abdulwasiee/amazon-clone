@@ -19,6 +19,8 @@ function LowerHeader() {
         <ul className={styles.rightList}>
           <li>Shop top Catagories</li>
         </ul>
+
+        
       </header>
     </>
   );

@@ -8,6 +8,11 @@
 a {
   color: white;
 }
+.fixed {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
 
 .headerContainer {
   width: 100%;
@@ -176,8 +181,8 @@ select {
 
   padding: 7px;
 }
-@media(max-width:700px){
-    .lowerHeader{
-        display: none;
-    }
+@media (max-width: 700px) {
+  .lowerHeader {
+    display: none;
+  }
 }

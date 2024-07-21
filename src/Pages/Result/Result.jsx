@@ -21,7 +21,7 @@ function Result() {
         console.log(err);
       });
   }, [categoryId]);
-  console.log(result);
+
   return (
     <Layout>
       <h1 className="results">Results</h1>
@@ -30,7 +30,7 @@ function Result() {
       <div className="categotyProductList">
         {result.length > 0 ? (
           result.map((singleItem) => (
-            <SingleProduct key={singleItem.id} product={singleItem} />
+            <SingleProduct key={singleItem.id} product={singleItem} buttonDisp={true} />
           ))
         ) : (
           <Loader/>
