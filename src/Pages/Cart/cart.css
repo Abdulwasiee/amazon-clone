@@ -1,30 +1,102 @@
 .cartContainer {
   display: flex;
+  flex-direction: column;
   width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #f8f8f8;
 }
+
+.greeting-subtotal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
 .greeting h3,
 .greeting p {
   padding: 10px;
+  margin: 0;
 }
+
 .subTotalContainer {
   background-color: #c0aeae;
-  width: 50%;
-  margin-top: 30px;
-  margin-right: 200px;
-  height: 100px;
+  padding: 20px;
+  border-radius: 10px;
   text-align: center;
-  padding: 10px;
-  margin-left: 50px;
 }
+
 .subTotal {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .checkOut {
   margin: 10px;
   background-color: orange;
   border: none;
   border-radius: 5px;
-  padding: 0 10px;
+  padding: 10px 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.checkOut:hover {
+  background-color: darkorange;
+}
+
+.giftOption {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.giftOption label {
+  margin-left: 5px;
+}
+
+/* .itemContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; 
+} */
+
+.productItem {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+}
+.product-button{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px;
+}
+
+.button-group button {
+  margin:10px;
+  padding: 5px 10px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+}
+.amount{
+  text-align: center;
+}
+
+.button-group button:hover {
+  background-color: #e0e0e0;
 }

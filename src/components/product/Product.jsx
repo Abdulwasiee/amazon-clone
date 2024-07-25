@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import SingleProduct from "./SingleProduct";
 import "./Product.css";
-import Loader from "../Loder/Loader"; // Adjust path as necessary
+import Loader from "../Loder/Loader"; 
 
 function Product() {
   const [products, setProducts] = useState([]);
@@ -10,7 +10,7 @@ function Product() {
 
   useEffect(() => {
     axios
-      .get("https://fakestoreapi.com/products?limit=30")
+      .get("https://fakestoreapi.com/products")
       .then((response) => {
         setProducts(response.data);
         setLoadingProducts(false); 

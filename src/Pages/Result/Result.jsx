@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Layout from "../../components/Layout/LayOut";
 import axios from "axios";
-import '../../components/product/Product'
+import "../../components/product/Product";
 import "./Result.css";
 import SingleProduct from "../../components/product/SingleProduct";
 import Loader from "../../components/Loder/Loader";
@@ -30,10 +30,14 @@ function Result() {
       <div className="categotyProductList">
         {result.length > 0 ? (
           result.map((singleItem) => (
-            <SingleProduct key={singleItem.id} product={singleItem} buttonDisp={true} />
+            <SingleProduct
+              key={singleItem.id}
+              product={singleItem}
+              buttonDisp={true}
+            />
           ))
         ) : (
-          <Loader/>
+          <Loader />
         )}
       </div>
     </Layout>

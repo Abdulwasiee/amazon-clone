@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
-import Layout from "../../components/Layout/LayOut"; // Corrected import path for Layout
+import Layout from "../../components/Layout/LayOut";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import SingleProduct from "../../components/product/SingleProduct";
-import Loader from "../../components/Loder/Loader"; // Assuming Loader component is correctly named and imported
+import Loader from "../../components/Loder/Loader";
 
 function ProductDetail() {
   const [item, setItem] = useState(null);
-  const [loading, setLoading] = useState(true); // State for loading indicator
+  const [loading, setLoading] = useState(true);
   const { productId } = useParams();
 
   useEffect(() => {
@@ -23,20 +23,23 @@ function ProductDetail() {
       });
   }, [productId]);
 
-
   if (loading) {
-    return <Loader />; 
+    return <Loader />;
   }
 
- 
   if (!item) {
-    return <p>Product not found.</p>; 
+    return <p>Product not found.</p>;
   }
 
   return (
     <>
       <Layout>
-        <SingleProduct product={item} flex={true} descDisplay={true} buttonDisp={true} />
+        <SingleProduct
+          product={item}
+          flex={true}
+          descDisplay={true}
+          buttonDisp={true}
+        />
       </Layout>
     </>
   );

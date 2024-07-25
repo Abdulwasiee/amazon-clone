@@ -1,8 +1,10 @@
+// DataProvider.js
 import React, { useReducer, createContext } from "react";
+import { reducer, initialState } from "../Utility/reducer";
 
 export const contextProvider = createContext();
 
-function DataProvider({ children, initialState, reducer }) {
+const DataProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
@@ -10,6 +12,6 @@ function DataProvider({ children, initialState, reducer }) {
       {children}
     </contextProvider.Provider>
   );
-}
+};
 
 export default DataProvider;

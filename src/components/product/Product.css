@@ -24,7 +24,7 @@
 
 .singleProduct .productImage {
   max-width: 100%;
-  max-height: 150px;
+  max-height: 100px;
   object-fit: contain;
   margin-bottom: 12px;
 }
@@ -66,7 +66,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 60%;
+  width: 400px;
   color: black;
   margin: 30px;
   gap: 50px;
@@ -86,7 +86,7 @@
 }
 
 .singleProductflexer .description {
-  width: auto;
+  width: 300px;
   margin: 7px;
 }
 
@@ -102,15 +102,16 @@
     display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 90%;
+  width: 60%;
   color: black;
-  margin: 30px;
+  margin:auto;
   gap: 50px;
  
 }
 .singleProductflexersmall .imgContainer {
-  width: 80px;
+  width: 60px;
   height: auto;
+  margin: auto;
 }
 .singleProductflexersmall img {
   width: 100%;

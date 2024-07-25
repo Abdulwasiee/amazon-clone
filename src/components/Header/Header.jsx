@@ -4,20 +4,26 @@ import { TiLocationOutline } from "react-icons/ti";
 import { CiSearch } from "react-icons/ci";
 import { PiShoppingCartSimple } from "react-icons/pi";
 import flag from "../../assets/americanFlag.png";
-import logo from "../../assets/Amazon_logo.svg";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { contextProvider } from "../../Data/DataProvider";
+import { auth } from "../../Utility/fireBase";
 
 function Header() {
-  const { state, dispatch } = useContext(contextProvider);
+  const { state } = useContext(contextProvider);
 
   return (
     <section className={styles.fixed}>
       <header className={styles.headerContainer}>
         <section className={styles.headerSection1}>
           <div className={styles.primeDay}>
-            <img className={styles.logo} src={logo} alt="Amazon Logo" />
+            <Link to="/">
+              <img
+                className={styles.logo}
+                src="https://upload.wikimedia.org/wikipedia/donate/f/fd/Amazon-logo-white.svg"
+                alt="Amazon Logo"
+              />
+            </Link>
           </div>
           <div className={styles.deliverTo}>
             <TiLocationOutline />
@@ -28,7 +34,7 @@ function Header() {
         </section>
         <section className={styles.headerSection2}>
           <div className={styles.select}>
-            <select className={styles.all} name="" id="">
+            <select className={styles.all} name="category" id="category">
               <option value="">All</option>
             </select>
           </div>
@@ -44,18 +50,28 @@ function Header() {
             <span className={styles.flag}>
               <img src={flag} alt="country flag" />
             </span>
-            <select className={styles.english} name="" id="">
-              <option value="">EN</option>
+            <select className={styles.english} name="language" id="language">
+              <option value="EN">EN</option>
             </select>
           </div>
           <div className={styles.signIn}>
-            <Link to="/signUp">
-              Hello, Sign In <br />
-              Account & Lists
+            <Link to={state.user ? "/" : "/signUp"}>
+              {state.user ? (
+                <>
+                  <small>Hello, {state.user.email.split("@")[0]}</small> <br />
+                  <span onClick={() => auth.signOut()}>Log Out</span>
+                </>
+              ) : (
+                <>
+                  <small>Hello, Sign In</small>
+                  <br />
+                  <span>Account & Lists</span>
+                </>
+              )}
             </Link>
           </div>
           <div className={styles.order}>
-            <Link to="/order">
+            <Link to="/orders">
               Returns <br />
               and Orders
             </Link>
