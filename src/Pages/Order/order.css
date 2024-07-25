@@ -1,0 +1,84 @@
+/* General styles for the order container */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.order_container {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.order_container h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.order_container hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+}
+
+.order_container p {
+  font-size: 18px;
+  color: #555;
+}
+
+/* Styles for each order block */
+.order_block {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.order_block p {
+  margin: 0;
+}
+
+.order_block h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+/* Styles for individual products within an order */
+.order_product {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.order_product img {
+  width: 80px;
+  height: auto;
+  margin-right: 20px;
+}
+
+.order_product_info {
+  flex: 1;
+}
+
+.order_product_info h4 {
+  font-size: 16px;
+  margin: 0;
+  color: #333;
+}
+
+.order_product_info p {
+  margin: 5px 0;
+  color: #666;
+}
+
+.order_product_price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000;
+}

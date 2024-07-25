@@ -9,10 +9,13 @@ import { db } from "../../Utility/fireBase";
 import { collection, doc, setDoc } from "firebase/firestore";
 import "./payment.css";
 import { useNavigate } from "react-router-dom";
+import { Type } from "../../Utility/action.type";
+import Currency from "../../components/product/currencyFormat/currency";
 
 function Payment() {
   const {
     state: { user, basket },
+    dispatch,
   } = useContext(contextProvider);
 
   if (!user) {
@@ -81,7 +84,9 @@ function Payment() {
           amount: paymentIntent.amount,
           created: paymentIntent.created,
         });
-
+        dispatch({
+          type: Type.EMPTY_BASKET,
+        });
         navigate("/orders", { state: { msg: "You have an order!" } });
       } else {
         setCardError("Payment failed. Please try again.");
@@ -121,13 +126,18 @@ function Payment() {
           <form onSubmit={handleSubmit}>
             <CardElement onChange={handleChange} />
             {cardError && <div className="error">{cardError}</div>}
+            <div className="balance"> {<Currency amount={total}/>}</div>
             <button
               type="submit"
               className="payment_button"
               disabled={processing}
             >
               {processing ? (
-                <ClipLoader size={20} color={"#FFF"} loading={processing} />
+                <div>
+                  {" "}
+                  <p> please wait </p>
+                  <ClipLoader size={20} color={"#FFF"} loading={processing} />
+                </div>
               ) : (
                 "Pay Now"
               )}
