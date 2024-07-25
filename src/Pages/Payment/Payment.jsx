@@ -126,7 +126,9 @@ function Payment() {
           <form onSubmit={handleSubmit}>
             <CardElement onChange={handleChange} />
             {cardError && <div className="error">{cardError}</div>}
-            <div className="balance"> {<Currency amount={total}/>}</div>
+            <div className="balance">
+              <Currency amount={total} />
+            </div>
             <button
               type="submit"
               className="payment_button"
@@ -134,8 +136,7 @@ function Payment() {
             >
               {processing ? (
                 <div>
-                  {" "}
-                  <p> please wait </p>
+                  <p>Please wait</p>
                   <ClipLoader size={20} color={"#FFF"} loading={processing} />
                 </div>
               ) : (

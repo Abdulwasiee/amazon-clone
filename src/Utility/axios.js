@@ -1,7 +1,12 @@
+// Utility/axios.js
 import axios from "axios";
 
+// Create an Axios instance
 const axiosInstance = axios.create({
-  baseURL: "http://127.0.0.1:5001/clone-817f6/us-central1/api",
+  baseURL: "https://amazon-api-deploy-e0ng.onrender.com",
+  headers: {
+    "Content-Type": "application/json",
+  },
 });
 
 export { axiosInstance };

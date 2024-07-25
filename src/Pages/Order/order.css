@@ -82,3 +82,70 @@
   font-weight: bold;
   color: #000;
 }
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .order_container {
+    padding: 15px;
+  }
+
+  .order_container h2 {
+    font-size: 20px;
+  }
+
+  .order_product {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .order_product img {
+    width: 100px; /* Adjust width for mobile */
+    margin-bottom: 10px; /* Add spacing for column layout */
+  }
+
+  .order_product_info {
+    text-align: left;
+  }
+
+  .order_product_info h4 {
+    font-size: 14px;
+  }
+
+  .order_product_info p {
+    font-size: 14px;
+  }
+
+  .order_product_price {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 10px;
+  }
+
+  .order_container {
+    padding: 10px;
+  }
+
+  .order_container h2 {
+    font-size: 18px;
+  }
+
+  .order_product img {
+    width: 80px; /* Further adjust for very small screens */
+  }
+
+  .order_product_info h4 {
+    font-size: 12px;
+  }
+
+  .order_product_info p {
+    font-size: 12px;
+  }
+
+  .order_product_price {
+    font-size: 12px;
+  }
+}

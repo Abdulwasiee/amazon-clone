@@ -1,3 +1,4 @@
+/* General Styles */
 body, html {
   margin: 0;
   padding: 0;
@@ -10,14 +11,15 @@ body, html {
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
   padding: 16px;
-  margin-top: -150px; 
+  margin-top: -150px;
   z-index: 2;
   position: relative;
 }
 
 .itemContainer {
   border: 1px solid #ddd;
-  width: 250px;
+  width: 100%;
+  max-width: 250px;
   border-radius: 4px;
   padding: 16px;
   text-align: center;
@@ -33,7 +35,7 @@ body, html {
   font-size: 1.2em;
   font-weight: bold;
   margin-bottom: 8px;
-  color: rgb(38, 5, 5); /* Adjusted color property */
+  color: rgb(38, 5, 5);
 }
 
 .itemImage {
@@ -53,4 +55,43 @@ body, html {
 
 .shop:hover {
   text-decoration: underline;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .catagories {
+    margin-top: 0; /* Reset margin for smaller screens */
+  }
+
+  .itemContainer {
+    max-width: 100%;
+    padding: 12px;
+  }
+
+  .title {
+    font-size: 1em;
+  }
+
+  .itemImage {
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .itemContainer {
+    max-width: 100%;
+    padding: 8px;
+  }
+
+  .title {
+    font-size: 0.9em;
+  }
+
+  .itemImage {
+    height: 120px;
+  }
+
+  .shop {
+    font-size: 0.9em;
+  }
 }

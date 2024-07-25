@@ -32,7 +32,7 @@ function ProductDetail() {
   }
 
   return (
-    <>
+    <div className="detail_container">
       <Layout>
         <SingleProduct
           product={item}
@@ -41,7 +41,7 @@ function ProductDetail() {
           buttonDisp={true}
         />
       </Layout>
-    </>
+    </div>
   );
 }
 
