@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, redirect, Route, Routes } from "react-router-dom";
 import Landing from "./Pages/Landing/Landing";
 
 import Payment from "./Pages/Payment/Payment";
@@ -10,7 +10,7 @@ import Auth from "./Pages/Auth/Auth";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import Protect from "./components/ProtectedRoute/Protect";
-import Order from './Pages/Order/Order';
+import Order from "./Pages/Order/Order";
 
 const stripePromise = loadStripe(
   "pk_test_51PfhUWRtkJKh87Ohivd9z0L2DbiyVKeIQtgyokhChoRhdqWLIftJlvfYcEOYASOifQXJ8AhWKpF1jJ8chZvS4MbQ004CUbqyME"
@@ -20,12 +20,22 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Landing />} />
+        <Route
+          path="/"
+          element={
+            <Protect msg={"wellcome"} redirect="/">
+              <Landing />
+            </Protect>
+          }
+        />
         <Route
           path="/orders"
           element={
-            <Protect msg={"You must log in to see your orders"} redirect="/orders">
-              <Order/>
+            <Protect
+              msg={"You must log in to see your orders"}
+              redirect="/orders"
+            >
+              <Order />
             </Protect>
           }
         />
