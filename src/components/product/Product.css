@@ -1,18 +1,7 @@
 /* General Styles */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 
-body {
-  font-family: Arial, sans-serif;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
-}
 
-/* General Styles for Product List */
+
 .productList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
