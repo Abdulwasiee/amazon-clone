@@ -1,3 +1,4 @@
+// Header.js
 import React, { useContext } from "react";
 import styles from "./Header.module.css";
 import { TiLocationOutline } from "react-icons/ti";
@@ -7,10 +8,12 @@ import flag from "../../assets/americanFlag.png";
 import LowerHeader from "./LowerHeader";
 import { Link } from "react-router-dom";
 import { contextProvider } from "../../Data/DataProvider";
+import { useSearch } from "../../Data/searchContext"; // Import the new search context
 import { auth } from "../../Utility/fireBase";
 
 function Header() {
   const { state } = useContext(contextProvider);
+  const { searchQuery, setSearchQuery } = useSearch(); // Use search context
 
   return (
     <section className={styles.fixed}>
@@ -39,7 +42,12 @@ function Header() {
             </select>
           </div>
           <div className={styles.searchBox}>
-            <input type="text" placeholder="Search Amazon" />
+            <input
+              type="text"
+              placeholder="Search Amazon"
+              value={searchQuery} // Bind search query
+              onChange={(e) => setSearchQuery(e.target.value)} // Update search query
+            />
           </div>
           <div className={styles.searchIcon}>
             <CiSearch />
