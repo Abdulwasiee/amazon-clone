@@ -20,14 +20,7 @@ function Router() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <Protect msg={"wellcome"} redirect="/">
-              <Landing />
-            </Protect>
-          }
-        />
+        <Route path="/" element={<Landing />} />
         <Route
           path="/orders"
           element={

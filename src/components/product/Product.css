@@ -1,7 +1,4 @@
 /* General Styles */
-
-
-
 .productList {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -22,8 +19,8 @@
   width: 100%; /* Ensure full width of its container */
   max-width: 350px; /* Fixed maximum width */
   height: auto; /* Adjust height automatically */
-  background-color: #fff; /* Ensure background color is applied */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add shadow for better visibility */
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add shadow for better visibility */
 }
 
 .singleProduct .imgContainer {
