@@ -4,9 +4,8 @@ import { contextProvider } from "../../Data/DataProvider";
 import { db } from "../../Utility/fireBase";
 import { collection, getDocs, query, orderBy } from "firebase/firestore";
 import SingleProduct from "../../components/product/SingleProduct";
-import "./order.css"; // Assuming there is a CSS file for styling
-// import { Loader } from "../../components/Loder/Loader"; // Correct import statement
-import Loader from './../../components/Loder/Loader';
+import "./order.css";
+import Loader from "./../../components/Loder/Loader";
 
 function Order() {
   const [orders, setOrders] = useState([]);

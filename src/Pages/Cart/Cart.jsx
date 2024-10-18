@@ -39,7 +39,7 @@ function Cart() {
   return (
     <LayOut>
       {basket.length === 0 ? (
-        <p>Oops! No items in your cart</p>
+        <p className="oop">Oops! No items in your cart</p>
       ) : (
         <div className="cartContainer">
           <div className="greeting-subtotal">

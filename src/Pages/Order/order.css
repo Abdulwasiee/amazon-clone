@@ -1,4 +1,4 @@
-/* General styles for the order container */
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -100,7 +100,7 @@
 
   .order_product img {
     width: 100px; /* Adjust width for mobile */
-    margin-bottom: 10px; /* Add spacing for column layout */
+    margin-bottom: 10px; 
   }
 
   .order_product_info {

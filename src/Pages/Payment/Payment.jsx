@@ -37,68 +37,83 @@ function Payment() {
   const handleChange = (e) => {
     setCardError(e.error ? e.error.message : "");
   };
+const handleSubmit = async (event) => {
+  event.preventDefault();
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  if (!user || !user.uid) {
+    setCardError("User information is missing. Please log in again.");
+    return;
+  }
 
-    if (!user || !user.uid) {
-      setCardError("User information is missing. Please log in again.");
-      return;
-    }
+  setProcessing(true);
 
-    setProcessing(true);
+  try {
+    const totalCents = Math.round(total * 100);
 
-    try {
-      const response = await axiosInstance.post("/payment/create", {
-        total: total * 100, // Convert to cents
-      });
+    const response = await axiosInstance.post("/payment/create", {
+      total: totalCents,
+    });
 
-      const clientSecret = response.data.clientSecret;
+    const clientSecret = response.data.clientSecret;
 
-      const { paymentIntent, error } = await stripe.confirmCardPayment(
-        clientSecret,
-        {
-          payment_method: {
-            card: elements.getElement(CardElement),
-            billing_details: {
-              name: user.email,
-            },
+    const { paymentIntent, error } = await stripe.confirmCardPayment(
+      clientSecret,
+      {
+        payment_method: {
+          card: elements.getElement(CardElement),
+          billing_details: {
+            name: user.email,
           },
-        }
-      );
+        },
+      }
+    );
+    console.log("[PaymentIntent]", paymentIntent);
 
-      if (error) {
-        console.error("[PaymentError]", error);
-        setCardError(error.message);
-      } else if (paymentIntent.status === "succeeded") {
-        console.log("[PaymentIntent]", paymentIntent);
+    if (error) {
+      console.error("[PaymentError]", error);
+      setCardError(error.message);
+    } else if (paymentIntent.status === "succeeded") {
+      console.log("Payment succeeded!");
 
+      try {
         const userOrdersCollection = collection(
           db,
           "users",
           user.uid,
           "orders"
         );
-        await setDoc(doc(userOrdersCollection, paymentIntent.id), {
+        const orderDocRef = doc(userOrdersCollection, paymentIntent.id);
+
+        // Write to Firestore
+        await setDoc(orderDocRef, {
           basket: basket,
           amount: paymentIntent.amount,
           created: paymentIntent.created,
         });
+        console.log("Order saved to Firestore");
+
         dispatch({
           type: Type.EMPTY_BASKET,
         });
+
         navigate("/orders", { state: { msg: "You have an order!" } });
-      } else {
-        setCardError("Payment failed. Please try again.");
-        console.error("[PaymentIntent Error]", paymentIntent);
+      } catch (firestoreError) {
+        console.error("Firestore Error:", firestoreError);
+        setCardError(
+          "Failed to save order in Firestore. Please contact support."
+        );
       }
-    } catch (err) {
-      console.error("[Error]", err);
+    } else {
       setCardError("Payment failed. Please try again.");
-    } finally {
-      setProcessing(false);
+      console.error("[PaymentIntent Error]", paymentIntent);
     }
-  };
+  } catch (err) {
+    console.error("[Error]", err);
+    setCardError("Payment failed. Please try again.");
+  } finally {
+    setProcessing(false);
+  }
+};
 
   return (
     <LayOut>

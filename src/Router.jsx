@@ -12,10 +12,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import Protect from "./components/ProtectedRoute/Protect";
 import Order from "./Pages/Order/Order";
 
-const stripePromise = loadStripe(
-  "pk_test_51PfhUWRtkJKh87Ohivd9z0L2DbiyVKeIQtgyokhChoRhdqWLIftJlvfYcEOYASOifQXJ8AhWKpF1jJ8chZvS4MbQ004CUbqyME"
-);
-
+const stripePromise = loadStripe(import.meta.env.VITE_STRIPE_PUBLIC_KEY);
 function Router() {
   return (
     <BrowserRouter>
